@@ -11,7 +11,13 @@ import mlflow.pytorch
 import json
 from sklearn.preprocessing import MinMaxScaler
 from torch.utils.data import DataLoader, TensorDataset
+import dagshub
+dagshub.init(repo_owner='PrakharSingh42', repo_name='Stock_king', mlflow=True)
 
+# Set MLflow tracking URI to DagsHub
+mlflow.set_tracking_uri("https://dagshub.com/PrakharSingh42/Stock_king.mlflow")
+mlflow.set_experiment("Stock_Prediction")
+print(mlflow.get_tracking_uri())
 # Ensure directories exist
 os.makedirs("models", exist_ok=True)
 os.makedirs("data/processed", exist_ok=True)
@@ -82,7 +88,7 @@ def train_model(model, train_loader, epochs=50, lr=0.001):
         model_path = "models/model.pkl"
         torch.save(model.state_dict(), model_path)
         mlflow.pytorch.log_model(model, "model")
-        print("Model saved and logged to MLflow!")
+        print("Model saved and logged to DagsHub!")
 
         # Save run ID and model name to JSON
         run_id = run.info.run_id
@@ -100,18 +106,10 @@ def predict_and_plot(model, X_test, Y_test, scaler):
     model.eval()
     with torch.no_grad():
         predictions = model(X_test).detach().cpu().numpy()  # Reduce memory usage
-
+    
     # Inverse transform to get original values
     Y_test = scaler.inverse_transform(Y_test.detach().cpu().numpy())  # Free memory
     predictions = scaler.inverse_transform(predictions)
-
-    # # Plot Results
-    # plt.figure(figsize=(12,6))
-    # plt.plot(Y_test, label="Actual Prices", color='blue')
-    # plt.plot(predictions, label="Predicted Prices", color='red')
-    # plt.legend()
-    # plt.title("Stock Price Prediction using LSTM")
-    # plt.show()
 
 # Main Execution
 if __name__ == "__main__":
