@@ -105,13 +105,13 @@ def predict_and_plot(model, X_test, Y_test, scaler):
     Y_test = scaler.inverse_transform(Y_test.detach().cpu().numpy())  # Free memory
     predictions = scaler.inverse_transform(predictions)
 
-    # Plot Results
-    plt.figure(figsize=(12,6))
-    plt.plot(Y_test, label="Actual Prices", color='blue')
-    plt.plot(predictions, label="Predicted Prices", color='red')
-    plt.legend()
-    plt.title("Stock Price Prediction using LSTM")
-    plt.show()
+    # # Plot Results
+    # plt.figure(figsize=(12,6))
+    # plt.plot(Y_test, label="Actual Prices", color='blue')
+    # plt.plot(predictions, label="Predicted Prices", color='red')
+    # plt.legend()
+    # plt.title("Stock Price Prediction using LSTM")
+    # plt.show()
 
 # Main Execution
 if __name__ == "__main__":
