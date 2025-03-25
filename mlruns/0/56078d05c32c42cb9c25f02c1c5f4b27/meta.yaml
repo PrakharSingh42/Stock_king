@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/rajpu/OneDrive/Desktop/python_project/stock_analysis/sam/mlruns/0/56078d05c32c42cb9c25f02c1c5f4b27/artifacts
+end_time: 1742896298953
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 56078d05c32c42cb9c25f02c1c5f4b27
+run_name: thundering-swan-38
+run_uuid: 56078d05c32c42cb9c25f02c1c5f4b27
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742896280602
+status: 3
+tags: []
+user_id: rajpu

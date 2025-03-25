@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/rajpu/OneDrive/Desktop/python_project/stock_analysis/sam/mlruns/0/f474aaac00e3419aa51f623b2b4f09ec/artifacts
+end_time: 1742901866102
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f474aaac00e3419aa51f623b2b4f09ec
+run_name: legendary-shrew-796
+run_uuid: f474aaac00e3419aa51f623b2b4f09ec
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742901845231
+status: 3
+tags: []
+user_id: rajpu

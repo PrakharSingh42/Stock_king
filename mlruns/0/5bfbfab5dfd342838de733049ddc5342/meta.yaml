@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/rajpu/OneDrive/Desktop/python_project/stock_analysis/sam/mlruns/0/5bfbfab5dfd342838de733049ddc5342/artifacts
+end_time: 1742901728943
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5bfbfab5dfd342838de733049ddc5342
+run_name: aged-bass-55
+run_uuid: 5bfbfab5dfd342838de733049ddc5342
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742901707283
+status: 3
+tags: []
+user_id: rajpu

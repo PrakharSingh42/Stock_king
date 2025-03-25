@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1742900122815
+current_stage: Staging
+description: ''
+last_updated_timestamp: 1742900122855
+name: StockLSTM
+run_id: e4141e87f59843889c08428919c316f6
+run_link: ''
+source: file:///C:/Users/rajpu/OneDrive/Desktop/python_project/stock_analysis/sam/mlruns/0/e4141e87f59843889c08428919c316f6/artifacts/artifacts/StockLSTM
+status: READY
+status_message: null
+storage_location: file:///C:/Users/rajpu/OneDrive/Desktop/python_project/stock_analysis/sam/mlruns/0/e4141e87f59843889c08428919c316f6/artifacts/artifacts/StockLSTM
+user_id: null
+version: 1

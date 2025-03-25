@@ -5,3 +5,24 @@ stages:
     - src/data/stockdata.py
     outs:
     - data/raw
+  pre_processing:
+    cmd: python src/data/pre_processing.py
+    deps:
+    - data/raw
+    - src/data/pre_processing.py
+    outs:
+    - data/processed
+  model_building:
+    cmd: python src/models/Model.py
+    deps:
+    - data/processed
+    - src/models/Model.py
+    outs:
+    - models/model.pkl
+  model_registration:
+    cmd: python src/models/model_reg.py
+    deps:
+    - models/model.pkl
+    - src/models/model_reg.py
+    - models/model_metadata.json
+    

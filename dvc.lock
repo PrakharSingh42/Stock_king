@@ -1,0 +1,50 @@
+schema: '2.0'
+stages:
+  data_collection:
+    cmd: python src/data/stockdata.py
+    deps:
+    - path: src/data/stockdata.py
+      hash: md5
+      md5: 18547ff30504379a943812be1edd8704
+      size: 2637
+    outs:
+    - path: data/raw
+      hash: md5
+      md5: 4535151abd5736599871d4f6f5f7b056.dir
+      size: 29531
+      nfiles: 1
+  pre_processing:
+    cmd: python src/data/pre_processing.py
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: 4535151abd5736599871d4f6f5f7b056.dir
+      size: 29531
+      nfiles: 1
+    - path: src/data/pre_processing.py
+      hash: md5
+      md5: 6d19c37ad2ac86104d49c2a79c621413
+      size: 2922
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: c441550de842db8938200fa131c4c83f.dir
+      size: 41598
+      nfiles: 1
+  model_building:
+    cmd: python src/models/Model.py
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: c441550de842db8938200fa131c4c83f.dir
+      size: 41598
+      nfiles: 1
+    - path: src/models/Model.py
+      hash: md5
+      md5: 9ae9c701cf7c272d3260435bf26e971d
+      size: 5149
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: 4a82682ea9380ee0975858dd958b2d6c
+      size: 205020
