@@ -1,15 +1,22 @@
 import json
 from mlflow.tracking import MlflowClient
 import mlflow
-
+import dagshub 
 
 # Initialize DagsHub for MLflow tracking
 
 # Set the MLflow experiment
-mlflow.set_experiment("Trading_AI_Model")
+
+dagshub_token = os.getenv("DAGSHUB_TOKEN")
+if not dagshub_token:
+    raise ValueError("DAGSHUB_TOKEN not found!")
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+mlflow.set_tracking_uri("https://dagshub.com/PrakharSingh42/Stock_king.mlflow")
+mlflow.set_experiment("Stock_Prediction")
 
 # Set MLflow tracking URI for DagsHub
-mlflow.set_tracking_uri("http://localhost:5000") 
+# mlflow.set_tracking_uri("http://localhost:5000") 
 
 # Path to the JSON file containing run ID and model name
 metadata_path = "models/model_metadata.json"

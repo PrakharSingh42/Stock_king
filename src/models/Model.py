@@ -12,12 +12,15 @@ import json
 from sklearn.preprocessing import MinMaxScaler
 from torch.utils.data import DataLoader, TensorDataset
 import dagshub
-dagshub.init(repo_owner='PrakharSingh42', repo_name='Stock_king', mlflow=True)
-
+dagshub_token = os.getenv("DAGSHUB_TOKEN")
+if not dagshub_token:
+    raise ValueError("DAGSHUB_TOKEN not found!")
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
 # Set MLflow tracking URI to DagsHub
 mlflow.set_tracking_uri("https://dagshub.com/PrakharSingh42/Stock_king.mlflow")
 mlflow.set_experiment("Stock_Prediction")
-print(mlflow.get_tracking_uri())
+
 # Ensure directories exist
 os.makedirs("models", exist_ok=True)
 os.makedirs("data/processed", exist_ok=True)
