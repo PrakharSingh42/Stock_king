@@ -8,7 +8,7 @@ export default function PredictPage() {
   const [error, setError] = useState<string | null>(null);
 
   // Handle input change
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {np
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFeatures(e.target.value);
   };
 
